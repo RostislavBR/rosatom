@@ -1,32 +1,55 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="app">
+        <router-view></router-view>
     </div>
-    <router-view />
-  </div>
 </template>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+    @font-face {
+        font-family: 'Rosatom';
+        font-weight: 600;
+        src: url("fonts/RST75.ttf");
     }
-  }
-}
+
+    @font-face {
+        font-family: 'Rosatom';
+        font-weight: 500;
+        src: url("fonts/RST56.ttf");
+    }
+
+    @font-face {
+        font-family: 'Rosatom';
+        font-weight: 400;
+        src: url("fonts/RST55.ttf");
+    }
+
+    @font-face {
+        font-family: 'Rosatom';
+        font-weight: 100;
+        src: url("fonts/RST45.ttf");
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: 'Rosatom';
+    }
+
+    body, html {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(287.65deg, #112341 0%, #205596 128.2%);
+    }
+
+    #app {
+        width: 100%;
+        height: 100%;
+    }
 </style>
+<script>
+
+    export default {
+        name: 'App',
+    }
+</script>
