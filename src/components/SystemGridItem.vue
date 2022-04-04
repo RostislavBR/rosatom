@@ -1,13 +1,13 @@
 <template>
     <div class="system-grid-item">
-        <span class="system-text" v-html="text">{{text}}</span>
+        <router-link :to="`/procurement-system/${id}`" class="system-text" v-html="text">{{text}}</router-link>
     </div>
 </template>
 
 <script>
     export default {
         name: "SystemGridItem",
-        props: ['text'],
+        props: ['id', 'text'],
     }
 </script>
 
@@ -23,6 +23,7 @@
         font-size: 30px;
         font-weight: 400;
         line-height: 39px;
+        text-decoration: none;
         color: #ffffff;
     }
 

@@ -1,9 +1,9 @@
 <template>
     <div class="security-grid-item">
         <div class="security-video-wrapper">
-            <video-player class="video-player-box" :options="playerOptions"/>
+            <video-player class="video-player-box" :options="playerOptions" ref="videoPlayer"/>
         </div>
-        <span class="security-play-button">Смотреть видео</span>
+        <span class="security-play-button" @click="fullscreen">Смотреть видео</span>
     </div>
 </template>
 
@@ -19,18 +19,37 @@
                 playerOptions: {
                     muted: true,
                     language: 'en',
-                    controlBar: false,
                     preload: 'auto',
+                    controlBar: {
+                        timeDivider: true,
+                        durationDisplay: true,
+                        remainingTimeDisplay: false,
+                        fullscreenToggle: true,
+                    },
+                    // fluid: true,
+                    // aspectRatio: '16: 9',
                     sources: [{
                         type: "video/mp4",
                         src: "https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm"
                     }],
-                    // poster: this.image,
-                }
+                    // width: document.documentElement.clientWidth,
+                    // preferFullWindow: true,
+                },
             }
         },
         components: {
             videoPlayer
+        },
+        methods: {
+            fullscreen() {
+                const player = this.$refs.videoPlayer.player;
+                player.play();
+            },
+        },
+        mounted() {
+            const player = this.$refs.videoPlayer.player;
+            player.on('play',() => player.requestFullscreen());
+            player.on('fullscreenchange',() => !player.isFullscreen() && player.pause());
         }
     }
 </script>
@@ -42,15 +61,18 @@
     }
 
     .security-video-wrapper {
-
+        border-radius: 50%;
+        margin: 0 0 40px;
     }
 
     .video-js {
         width: 690px;
-        min-height: 690px;
-        margin: 0 0 45px 0;
-        backdrop-filter: blur(4px);
-        border-radius: 50%;
+        height: 690px;
+        z-index: 100;
+    }
+
+    .vjs-tech {
+        width: auto !important;
     }
 
     .vjs-big-play-button {
@@ -82,6 +104,7 @@
         margin: 0 auto;
         width: 311px;
     }
+
     .security-play-button:after {
         content: '';
         padding: 6px;

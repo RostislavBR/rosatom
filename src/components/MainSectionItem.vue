@@ -8,9 +8,19 @@
 </template>
 
 <script>
+    // import {mapMutations} from "vuex";
+
     export default {
         name: "MainSectionItem",
-        props: ['text', 'image', 'src']
+        props: ['id', 'text', 'image', 'src'],
+        methods: {
+            // openIframe() {
+            //     this.id === 1 && this.toggleIframe(true);
+            // },
+            // ...mapMutations({
+            //     toggleIframe: 'setIframeDigitain'
+            // })
+        },
     }
 </script>
 

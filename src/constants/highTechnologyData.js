@@ -12,7 +12,7 @@ export default [
             id: 1,
             text: 'Продукция для ТЭК',
             type: 'presentation',
-            src: '',
+            src: '/products-tak',
         }
     ],
     [
@@ -20,7 +20,7 @@ export default [
             id: 2,
             text: 'Машиностроительная<br/>продукция',
             type: 'presentation',
-            src: '',
+            src: '/engineering-products',
         }
     ],
     [

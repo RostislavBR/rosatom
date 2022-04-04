@@ -2,7 +2,7 @@
     <div class="system-container">
         <SystemPageHead/>
         <div class="system-grid">
-            <SystemGridItem v-for="item in systemData" :key="item.id" :text="item[0].text"/>
+            <SystemGridItem v-for="item in systemData" :key="item.id" :id="item[0].id" :text="item[0].text"/>
         </div>
         <SystemWatchVideo/>
         <HomeButton/>

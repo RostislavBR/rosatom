@@ -1,5 +1,5 @@
 <template>
-    <router-link :to="`${src}`" style="text-decoration: none; color: #ffffff">
+    <router-link :to="`${src}`" @click.native="openIframe" style="text-decoration: none; color: #ffffff">
         <div class="high-technology-item">
             <span class="high-technology-text" v-html="text">{{text}}</span>
         </div>
@@ -7,9 +7,19 @@
 </template>
 
 <script>
+    import {mapMutations} from 'vuex';
+
     export default {
         name: "HighTechnologyItem",
-        props: ['text', 'src'],
+        props: ['text', 'src', 'type'],
+        methods: {
+            openIframe() {
+                this.type === 'iframe' && this.toggleIframeModules(true)
+            },
+            ...mapMutations({
+                toggleIframeModules: 'setIframeModules'
+            })
+        },
     }
 </script>
 

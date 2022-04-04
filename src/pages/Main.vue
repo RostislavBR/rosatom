@@ -2,12 +2,15 @@
     <div class="main-container">
         <MainHead/>
         <MainSection :content="mainData"/>
+        <IframeComponent v-if="iframeDigitain" :handler="toggleIframeDigitain" title="К гражданской продукции" src="https://www.rosatomcatalog.ru"/>
     </div>
 </template>
 
 <script>
     import MainHead from "@/components/MainHead";
     import MainSection from "@/components/MainSection";
+    import  IframeComponent from "@/components/IframeComponent";
+    import {mapGetters, mapMutations} from "vuex";
     import mainData from "@/constants/mainData";
 
     export default {
@@ -17,7 +20,16 @@
                 mainData,
             }
         },
-        components: {MainHead, MainSection},
+        computed: {
+            ...mapGetters({iframeDigitain: 'getIframeDigitain', iframeModules: 'getIframeModules'})
+        },
+        methods: {
+            ...mapMutations({
+                toggleIframeDigitain: 'setIframeDigitain',
+                toggleIframeModules: 'setIframeModules'
+            })
+        },
+        components: {MainHead, MainSection, IframeComponent},
     }
 </script>
 

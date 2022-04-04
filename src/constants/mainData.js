@@ -7,14 +7,14 @@ export default [
             src: '/procurement-system',
         },
     ],
-    [
-        {
-            id: 1,
-            img: 'img2.png',
-            text: 'Цифровые продукты',
-            src: '',
-        },
-    ],
+    // [
+    //     {
+    //         id: 1,
+    //         img: 'img2.png',
+    //         text: 'Цифровые продукты',
+    //         src: '',
+    //     },
+    // ],
     [
         {
             id: 2,

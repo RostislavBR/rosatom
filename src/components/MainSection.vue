@@ -1,7 +1,7 @@
 <template>
     <div class="main-section-container">
         <div class="main-section-list">
-            <MainSectionItem v-for="item in content" :key="item.id" :text="item[0].text" :image="item[0].img" :src="item[0].src"/>
+            <MainSectionItem v-for="(item, i) in content" :key="item.id" :text="item[0].text" :image="item[0].img" :src="item[0].src" :id="i"/>
         </div>
     </div>
 </template>
